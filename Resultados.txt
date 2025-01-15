@@ -1,3 +1,4 @@
+----------------------------------------------------
 Wisley César -> FCFS - First Come, First Served
 Ordem de Execução: P1 → P2 → P3 → P4 → P5
 
@@ -10,3 +11,4 @@ P5       | 11               | 8                 | 1          | 11              |
 
 Tempo Médio de Espera: 5.80
 Tempo Médio de Retorno: 11.80
+----------------------------------------------------
