@@ -29,3 +29,18 @@ Média de Espera: 12.60
 Média de Retorno: 18.60
 --------------------------------
 
+--------------------------------
+Round Robin (RR)
+
+Ordem de Execução: P1 -> P2 -> P1 -> P3 -> P2 -> P4 -> P1 -> P3 -> P5 -> P4 -> P3 -> P5 -> P4 -> P3 -> P5 -> P5
+
+Processo  Tempo de Espera     Tempo de Retorno    
+P2        8                   7                   
+P1        11                  12                  
+P4        18                  19                  
+P3        22                  22                  
+P5        19                  19                  
+
+Tempo Médio de Espera: 15.60
+Tempo Médio de Retorno: 15.80
+--------------------------------
