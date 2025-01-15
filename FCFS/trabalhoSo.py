@@ -51,7 +51,7 @@ def escalonamento_fcfs(processos):
     print(f"Tempo Médio de Retorno: {media_retorno:.2f}")
 
     with open("Resultados.txt", "w") as arquivo:
-        arquivo.write("FCFS - First Come, First Served\n")
+        arquivo.write("Wisley César -> FCFS - First Come, First Served\n")
         arquivo.write("Ordem de Execução: " + " → ".join([p.id for p in processos]) + "\n\n")
         arquivo.write("Processo | Tempo de Chegada | Tempo de Execução | Prioridade | Tempo de Espera | Tempo de Retorno\n")
         for p in processos:

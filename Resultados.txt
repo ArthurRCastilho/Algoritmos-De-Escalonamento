@@ -1,4 +1,4 @@
-FCFS - First Come, First Served
+Wisley César -> FCFS - First Come, First Served
 Ordem de Execução: P1 → P2 → P3 → P4 → P5
 
 Processo | Tempo de Chegada | Tempo de Execução | Prioridade | Tempo de Espera | Tempo de Retorno
