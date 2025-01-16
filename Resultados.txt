@@ -60,3 +60,19 @@ Média de Espera: 5.40
 Média de Retorno: 11.40
 --------------------------------
 
+--------------------------------
+Caua Cristian -> Escalonamento por Prioridade com Múltiplas Filas
+
+Ordem de Execução: P2 → P5 → P1 → P4 → P3
+
+Processo | Tempo de Chegada | Tempo de Execução | Prioridade | Tempo de Espera | Tempo de Retorno
+P2       | 2                | 3                 | 1          | 0               | 3
+P5       | 11                | 8                 | 1          | 0               | 8
+P1       | 0                | 5                 | 2          | 19               | 24
+P4       | 5                | 6                 | 2          | 19               | 25
+P3       | 4                | 8                 | 3          | 26               | 34
+
+Tempo Médio de Espera: 12.80
+Tempo Médio de Retorno: 18.80
+--------------------------------
+
