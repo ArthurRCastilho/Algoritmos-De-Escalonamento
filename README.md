@@ -18,6 +18,7 @@ escalonamento afetam a ordem de execução dos processos e o desempenho geral do
 
 ### Membros
 - [Arthur Rodrigues](https://github.com/ArthurRCastilho)<br>
+- [Caua Cristian](https://github.com/CauaCristian)<br>
 - [Gabriel Cândido](https://github.com/Gabriel-Candido-Ferreira)<br>
 - [Rhennan Augusto](https://github.com/RhennanAugusto)<br>
 - [Ronan César](https://github.com/ronancesar)<br>
