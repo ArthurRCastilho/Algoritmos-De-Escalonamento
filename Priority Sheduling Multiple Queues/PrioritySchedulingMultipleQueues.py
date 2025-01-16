@@ -19,7 +19,7 @@ class EscalonadorPrioridadeMultiplasFilas:
         self.filas[processo.prioridade].append(processo)
 
     def executar(self):
-        prioridades_ordenadas = sorted(self.filas.keys())  # Menor número = maior prioridade
+        prioridades_ordenadas = sorted(self.filas.keys())
         tempo_atual = 0
         ordem_execucao = []
 
@@ -45,9 +45,9 @@ class EscalonadorPrioridadeMultiplasFilas:
 
     @staticmethod
     def escrever_saida(ordem_execucao, media_tempo_espera, media_tempo_retorno, nome_arquivo):
-        with open(nome_arquivo, 'a', encoding='utf-8') as arquivo:  # Alterado para modo 'a' para adicionar ao arquivo
+        with open(nome_arquivo, 'a', encoding='utf-8') as arquivo:
             arquivo.write("--------------------------------\n")
-            arquivo.write("Caua Cristian -> Escalonamento por Prioridade com Múltiplas Filas\n\n")
+            arquivo.write("Caua Cristian -> Priority Scheduling Multiple Queues\n\n")
             arquivo.write("Ordem de Execução: " + " → ".join(p.pid for p in ordem_execucao) + "\n\n")
             arquivo.write("Processo | Tempo de Chegada | Tempo de Execução | Prioridade | Tempo de Espera | Tempo de Retorno\n")
             for processo in ordem_execucao:
@@ -59,14 +59,13 @@ class EscalonadorPrioridadeMultiplasFilas:
 if __name__ == "__main__":
     escalonador = EscalonadorPrioridadeMultiplasFilas()
 
-    # Ler entradas do arquivo
     pasta_atual = os.path.dirname(os.path.abspath(__file__))
     nome_arquivo_entrada = os.path.join(pasta_atual, "..", "Entrada.txt")
     nome_arquivo_saida = os.path.join(pasta_atual, "..", "Resultados.txt")
 
     with open(nome_arquivo_entrada, 'r') as arquivo:
         linhas = arquivo.readlines()
-        for linha in linhas[1:]:  # Pular cabeçalho
+        for linha in linhas[1:]:
             partes = linha.split()
             pid = partes[0]
             tempo_chegada = int(partes[1])
@@ -74,11 +73,8 @@ if __name__ == "__main__":
             prioridade = int(partes[3])
             escalonador.adicionar_processo(Processo(pid, tempo_chegada, tempo_execucao, prioridade))
 
-    # Executar o escalonamento
     ordem_execucao = escalonador.executar()
 
-    # Calcular tempos médios
     media_tempo_espera, media_tempo_retorno = escalonador.calcular_medias(ordem_execucao)
 
-    # Escrever saída no arquivo
     escalonador.escrever_saida(ordem_execucao, media_tempo_espera, media_tempo_retorno, nome_arquivo_saida)
