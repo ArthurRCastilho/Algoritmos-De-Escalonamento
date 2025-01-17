@@ -1,3 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -65,6 +70,49 @@ public class SJFScheduling {
 
         System.out.printf("\nAverage Waiting Time: %.2f\n", avgWaitingTime);
         System.out.printf("Average Turnaround Time: %.2f\n", avgTurnaroundTime);
+
+        appendResultsToFile(processes, avgWaitingTime, avgTurnaroundTime); // Chama a função para adicionar ao arquivo
+    }
+
+    // Função que adiciona os resultados ao arquivo existente, mantendo os dados anteriores
+    public static void appendResultsToFile(List<Process> processes, double avgWaitingTime, double avgTurnaroundTime) {
+        String filePath = "Resultados.txt";  // Caminho do arquivo já existente
+        StringBuilder fileContent = new StringBuilder();
+
+        // Lê o conteúdo atual do arquivo
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                fileContent.append(line).append("\n");  // Adiciona o conteúdo existente ao StringBuilder
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+
+        fileContent.append("\n\n--- Ronan Cesar ---\n");
+        fileContent.append("SJF Scheduling Results:\n");
+        fileContent.append(String.format("%-10s%-10s%-10s%-10s%-10s%-10s\n", "Process", "Arrival", "Burst", "Priority", "Waiting", "Turnaround"));
+
+        for (Process process : processes) {
+            fileContent.append(String.format("P%-8d%-10d%-10d%-10d%-10d%-10d\n",
+                    process.pid,
+                    process.arrivalTime,
+                    process.burstTime,
+                    process.priority,
+                    process.waitingTime,
+                    process.turnaroundTime));
+        }
+
+        fileContent.append(String.format("\nAverage Waiting Time: %.2f\n", avgWaitingTime));
+        fileContent.append(String.format("Average Turnaround Time: %.2f\n", avgTurnaroundTime));
+
+        // Escreve o conteúdo no arquivo
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(fileContent.toString());
+            System.out.println("Results appended to " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
@@ -78,9 +126,9 @@ public class SJFScheduling {
         List<Process> completedProcesses = sjfScheduling(processList);
 
         System.out.println("\nSJF Scheduling Results:");
-        System.out.println("Process\tArrival\tBurst\tPriority\tWaiting\tTurnaround");
+        System.out.println(String.format("%-10s%-10s%-10s%-10s%-10s%-10s", "Process", "Arrival", "Burst", "Priority", "Waiting", "Turnaround"));
         for (Process process : completedProcesses) {
-            System.out.printf("P%d\t%d\t%d\t%d\t%d\t%d\n",
+            System.out.printf("P%-8d%-10d%-10d%-10d%-10d%-10d\n",
                     process.pid,
                     process.arrivalTime,
                     process.burstTime,

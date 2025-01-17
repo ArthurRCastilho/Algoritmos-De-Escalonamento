@@ -75,3 +75,16 @@ Tempo Médio de Espera: 12.80
 Tempo Médio de Retorno: 18.80
 --------------------------------
 
+
+
+--- Ronan Cesar ---
+SJF Scheduling Results:
+Process   Arrival   Burst     Priority  Waiting   Turnaround
+P1       0         8         3         0         8         
+P5       4         2         5         4         6         
+P2       1         4         1         9         13        
+P4       3         5         2         11        16        
+P3       2         9         4         17        26        
+
+Average Waiting Time: 8,20
+Average Turnaround Time: 13,80
