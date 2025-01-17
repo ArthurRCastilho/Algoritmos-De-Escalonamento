@@ -74,8 +74,8 @@ def salvar_resultados(processos, execution_order, tempo_medio_espera, tempo_medi
     print("-------\n")
 
     # Salva os resultados
-    with open(nome_arquivo, 'a') as file:  # Alterado para 'a' para adicionar ao arquivo
-        file.write("--------------------------------\nRound Robin (RR)\n\n")
+    with open(nome_arquivo, 'a') as file:  # 'a' para adicionar ao arquivo
+        file.write("--------------------------------\nArthur Rodrigues -> Round Robin (RR)\n\n")
         file.write("Ordem de Execução: " + " -> ".join(execution_order) + "\n\n")
         file.write(f"{'Processo':<10}{'Tempo de Espera':<20}{'Tempo de Retorno':<20}\n")
         for p in processos:
